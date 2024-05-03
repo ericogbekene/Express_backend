@@ -1,0 +1,14 @@
+{
+  "name": "expressapps",
+  "version": "1.0.0",
+  "description": "v01 of learning Express framework",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "eric ogbekene",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
