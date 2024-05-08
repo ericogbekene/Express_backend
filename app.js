@@ -1,7 +1,8 @@
 const express = require('express');
-//const res = require('express/lib/response');
+const swagger = require('./swagger');
 const app = express();
 const router=express.Router()
+
 
 app.get('/', (request, response) => {
 	response.type('text/html');
@@ -16,6 +17,31 @@ app.get('/login', (req, res) => {
 	res.send("message: 'Welcome to the login page'")
 
 });
+
+// logic for login post goes here
+/* 
+app.post('/orders', (req, res) => {
+	login_data = {}
+	res.type = {'application/json'}
+	res.body = {}
+	let collection = await db.collection("posts");
+	let newDocument = req.body;
+	newDocument.date = new Date();
+	let result = await collection.insertOne(newDocument);
+	res.send(result).status(204);
+	// create dictionary for user info
+	send data using Json to database to authenticate
+
+});
+*/
+
+/*
+logic for Sign-up
+*/
+
+// Using swagger UI for documentation
+
+swagger(app)
 
 // tell the app which port to listen on
 
