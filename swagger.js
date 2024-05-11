@@ -8,6 +8,7 @@ const options = {
       title: 'My API',
       version: '1.0.0',
       description: 'My REST API',
+      // insert documentation for endpoints here
     },
     servers: [
       {
