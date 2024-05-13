@@ -4,17 +4,27 @@ const express = require('express');
 const router = express.Router();
 const Order = require('../models/orders');
 
+// This will help us connect to the database
+
+//const db = require("../server/db/conn.js");
+
+
+// This help convert the id from string to ObjectId for the _id.
+//import { ObjectId } from "mongodb";
+//const mongodb = require("mongodb");
+
+
 // GET /api/orders
 router.get('/', async (req, res) => {
   try {
     // Find all orders in the database
-    const orders = await Order.find();
+    const Order = await Order.find();
 
     // Return success response with orders
-    res.status(200).json(orders);
+    res.status(200).json(Order);
   } catch (error) {
     // Return error response
-    console.error('Error fetching orders:', error);
+    console.error('Error fetching Order:', error);
     res.status(500).json({ message: 'Internal Server Error' });
   }
 });

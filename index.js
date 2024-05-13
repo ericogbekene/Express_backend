@@ -7,11 +7,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const mongoose = require('mongoose');
 // Load environment variables
-//import "./loadEnvironment.js";
+const loadEnvironment = require("./loadEnvironment.js");
 
 // Import routes
 const ordersRoute = require('./routes/order');
 const usersRoute = require('./routes/users');
+
+//trying to import Order and User model here
+const Order = require('./models/orders');
+const User = require('./models/user');
+
 
 const app = express();
 
@@ -20,7 +25,14 @@ app.use(bodyParser.json());
 app.use(cors());
 
 // Connect to MongoDB
-mongoose.connect('mongodb+srv://ericogbekene:admin@cluster0.lafqven.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
+
+const uri = process.env.ATLAS_URI || "mongodb+srv://ericogbekene:admin@cluster0.lafqven.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+try {
+  mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+} catch (error) {
+  console.log("COstome error test")
+}
+
 
 // Mount routes
 app.use('/api/orders', ordersRoute);
