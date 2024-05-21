@@ -29,6 +29,7 @@ app.use(cors());
 const uri = process.env.ATLAS_URI || "mongodb+srv://ericogbekene:admin@cluster0.lafqven.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 try {
   mongoose.connect(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+  console.log("Successfully conneced Backend to Database")
 } catch (error) {
   console.log("COstome error test")
 }
